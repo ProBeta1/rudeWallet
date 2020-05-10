@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import Card from './Card'
+
 const Test = styled.div`  
 background: #f4f4f4;
 .dashboard-section {
