@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Card from './Card'
+import Cards from './Cards'
 
 const Test = styled.div`  
 background: #f4f4f4;
@@ -110,34 +110,43 @@ background: #f4f4f4;
 }
 `;
 
+const Wrapper = styled.div`
+background: #f4f4f4;
+height: 100vh;
+margin: auto;
+overflow: hidden;
+padding-top: 3rem;
+`;
 
 
-function App() {
+function App( {items} ) {
   return (
     <div className="App">
-      <Test>
-        <div class="dashboard-section">
-          <div class="card">
-            <div class="card-grid">
-             <div className="col">
-                <h3>Account Balance</h3>
-                <h1>$210</h1>
-             </div>
-             <div className="col-2">
-                <h4>Spent: <span>$1590</span></h4>
-                <h4>Total budget: <span>$1800</span></h4>
-             </div>
-            </div>
-            <div class="progress-bar-wrapper">
-            <div class="progress-bar-bg">
-              <div class="progress-bar"></div>
-            </div>
+      <Wrapper>
+        <Test>
+          <div class="dashboard-section">
+            <div class="card">
+              <div class="card-grid">
+              <div className="col">
+                  <h3>Account Balance</h3>
+                  <h1>$210</h1>
+              </div>
+              <div className="col-2">
+                  <h4>Spent: <span>$1590</span></h4>
+                  <h4>Total budget: <span>$1800</span></h4>
+              </div>
+              </div>
+              <div class="progress-bar-wrapper">
+              <div class="progress-bar-bg">
+                <div class="progress-bar"></div>
+              </div>
+              </div>
             </div>
           </div>
-        </div>
-        <Card />
-      </Test>
-    </div>
+        </Test>
+      <Cards items={items} />
+    </Wrapper>
+  </div>
   );
 }
 
