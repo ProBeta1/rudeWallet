@@ -1,6 +1,21 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Cards from './Cards'
+
+const ProgressBar = styled.div`
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: auto;
+  bottom: 0%;
+  width: 0%;
+  height: 5px;
+  background-color: #34EF6F;
+  ${props => props.per && css`
+    width: ${props.per};
+  `}
+
+`;
 
 const Test = styled.div`  
 background: #f4f4f4;
@@ -82,16 +97,7 @@ background: #f4f4f4;
   background-color: #e8e8e8;
 }
 
-.progress-bar {
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  right: auto;
-  bottom: 0%;
-  width: 40%;
-  height: 5px;
-  background-color: #34EF6F;
-}
+
 .progress-bar-wrapper {
   position: relative;
   display: -webkit-box;
@@ -119,7 +125,7 @@ padding-top: 3rem;
 `;
 
 
-function App( {items} ) {
+function App( {items ,budget, spent, per} ) {
   return (
     <div className="App">
       <Wrapper>
@@ -129,16 +135,16 @@ function App( {items} ) {
               <div class="card-grid">
               <div className="col">
                   <h3>Account Balance</h3>
-                  <h1>$210</h1>
+                  <h1>${budget - spent}</h1>
               </div>
               <div className="col-2">
-                  <h4>Spent: <span>$1590</span></h4>
-                  <h4>Total budget: <span>$1800</span></h4>
+                  <h4>Spent: <span>${spent}</span></h4>
+                  <h4>Total budget: <span>${budget}</span></h4>
               </div>
               </div>
               <div class="progress-bar-wrapper">
               <div class="progress-bar-bg">
-                <div class="progress-bar"></div>
+                <ProgressBar per={per + '%'}></ProgressBar>
               </div>
               </div>
             </div>
