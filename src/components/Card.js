@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import bag from './assets/img/bag-09.svg'
+import pencil from './assets/img/pencil.svg'
+import trash from './assets/img/trash-simple.svg'
 
 const Card = styled.div`
 .dashboard-section {
