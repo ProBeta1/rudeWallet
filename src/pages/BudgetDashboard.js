@@ -1,17 +1,38 @@
-import React from 'react'
-import Item from "../components/Item"
+import React from "react";
+import Item from "../components/Item";
 
 function BudgetDashboard() {
+  const items = [
+    {
+      title: "food",
+      spent: 30,
+      budget: 60,
+    },
+    {
+      title: "foodoo",
+      spent: 80,
+      budget: 80,
+    },
+  ];
 
-  //const 
+  const calc = (spent,budget) => {
+    return Math.floor((spent/budget)*100);
+  }
+
+  const showItems = items.map((item) => (
+    <Item
+      title={item.title}
+      spent={item.spent}
+      budget={item.budget}
+      percentage={calc(item.spent, item.budget)}
+    />
+  ));
 
   return (
     <div>
-      <Item title="food" spent="20" budget="40" percentage={50}/>
-      <Item title="outing" spent="20" budget="40" percentage={30}/>
-
-    </div> 
-  )
+      {showItems}
+    </div>
+  );
 }
 
-export default BudgetDashboard
+export default BudgetDashboard;
