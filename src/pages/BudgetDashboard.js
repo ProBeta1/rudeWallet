@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "../components/Item";
+import Dashboard from '../components/Dashboard'
 
 function BudgetDashboard() {
   const items = [
@@ -30,7 +31,7 @@ function BudgetDashboard() {
 
   return (
     <div>
-      {showItems}
+      <Dashboard items={items} />
     </div>
   );
 }

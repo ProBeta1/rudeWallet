@@ -1,9 +1,10 @@
+import React from 'react'
 import styled from 'styled-components'
-import bag from './assets/img/bag-09.svg'
-import pencil from './assets/img/pencil.svg'
-import trash from './assets/img/trash-simple.svg'
+import bag from '../assets/img/bag-09.svg'
+import pencil from '../assets/img/pencil.svg'
+import trash from '../assets/img/trash-simple.svg'
 
-const Card = styled.div`
+const CardStyles = styled.div`
 .dashboard-section {
   display: -webkit-box;
   display: -webkit-flex;
@@ -202,22 +203,9 @@ const Card = styled.div`
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto;
 }
 
 .image-2 {
@@ -231,43 +219,45 @@ const Card = styled.div`
 
 `;
 
-export default Card = () => (
-      <Card>
-        <div class="dashboard-section">
-          <div class="card">
-            <div class="card-grid">
-              <div class="card-icon-wrapper">
-                <img src={bag} width="66" alt="" />
-              </div>
-              <div class="progress-bar-wrapper">
-                <h4 class="card-title">Shopping</h4>
-                <div class="progress-bar-bg">
-                  <div class="progress-bar"></div>
-                </div>
-                <div class="spent-text">
-                  Spent: <span class="money-card-text">$280</span>
-                </div>
-                <div class="budget-text">
-                  Budget: <span class="money-card-text">$520</span>
-                </div>
-              </div>
-              <div class="edit-wrapper">
-                <a href="#" class="icon-link w-inline-block"
-                  ><img
-                    src={pencil}
-                    width="60"
-                    alt=""
-                    class="image-2" /></a
-                ><a href="#" class="icon-link w-inline-block"
-                  ><img
-                    src={trash}
-                    width="67"
-                    alt=""
-                    class="image-3"
-                /></a>
-              </div>
+const Cards = ({items}) => (
+  <CardStyles>
+    <div class="dashboard-section">
+      <div class="card">
+        <div class="card-grid">
+          <div class="card-icon-wrapper">
+            <img src={bag} width="66" alt="" />
+          </div>
+          <div class="progress-bar-wrapper">
+            <h4 class="card-title">Shopping</h4>
+            <div class="progress-bar-bg">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="spent-text">
+              Spent: <span class="money-card-text">${items[0].spent}</span>
+            </div>
+            <div class="budget-text">
+              Budget: <span class="money-card-text">${items[0].budget}</span>
             </div>
           </div>
+          <div class="edit-wrapper">
+            <a href="#" class="icon-link w-inline-block"
+            ><img
+                src={pencil}
+                width="60"
+                alt=""
+                class="image-2" /></a
+            ><a href="#" class="icon-link w-inline-block"
+            ><img
+                src={trash}
+                width="67"
+                alt=""
+                class="image-3"
+              /></a>
+          </div>
         </div>
-      </Card>
-)
+      </div>
+    </div>
+  </CardStyles>
+);
+
+export default Cards;
